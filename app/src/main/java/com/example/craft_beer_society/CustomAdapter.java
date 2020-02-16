@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
@@ -68,6 +70,7 @@ public class CustomAdapter implements ListAdapter {
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse(beerData.Link));
                     context.startActivity(i);
+                    Toast.makeText(context, beerData.Link, Toast.LENGTH_LONG).show();
 
                 }
             });

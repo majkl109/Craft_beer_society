@@ -13,6 +13,7 @@
         android:padding="3dp">
 
         <ImageView
+            android:id="@id/list_image"
             android:layout_width="50dp"
             android:layout_height="50dp"/>
 
