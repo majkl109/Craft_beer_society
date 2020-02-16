@@ -1,19 +1,19 @@
 package com.example.craft_beer_society;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.DataSetObserver;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 
-class CustomAdapter implements ListAdapter {
+public class CustomAdapter implements ListAdapter {
     ArrayList<BeerData> arrayList;
     Context context;
 
@@ -29,12 +29,17 @@ class CustomAdapter implements ListAdapter {
     public boolean isEnabled(int position){
         return true;
     }
+
     @Override
-    public void registerDataObserver(DataSetObserver observer){
+    public void registerDataSetObserver(DataSetObserver observer) {
+
     }
+
     @Override
-    public void unregisterDataObserver(DataSetObserver observer){
+    public void unregisterDataSetObserver(DataSetObserver observer) {
+
     }
+
     @Override
     public int getCount(){
         return arrayList.size();
@@ -51,21 +56,25 @@ class CustomAdapter implements ListAdapter {
     public  boolean hasStableIds(){
         return false;
     }
-    @Override View getView(int position, View convertView, ViewGroup parent){
-        BeerData beerData = arrayList.get(position);
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent){
+        final BeerData beerData = arrayList.get(position);
         if(convertView == null){
             LayoutInflater layoutInflater = LayoutInflater.from(context);
             convertView = layoutInflater.inflate(R.layout.list_row,null);
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(beerData.Link));
+                    context.startActivity(i);
 
                 }
             });
             TextView tittle = convertView.findViewById(R.id.title);
             ImageView imag = convertView.findViewById(R.id.list_image);
             tittle.setText(beerData.BeerName);
-            Picasso.with(context).load(beerData.Image).into(imag);
+            Picasso.get().load(beerData.Image).into(imag);
         }
         return convertView;
     }

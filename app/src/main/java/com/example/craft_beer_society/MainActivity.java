@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add(new BeerData("Plavuša i Neposlušna", "https://www.agroklub.com/prehrambena-industrija/zadruzno-pivo-svi-bi-plavusu-i-neposlusnu-iz-brloga/46591/", "https://www.antenazadar.hr/wp-content/uploads/2018/03/plavusa-1.jpg"));
         arrayList.add(new BeerData("Bura brew", "https://www.burabrew.hr/our-roots-1", "https://image.dnevnik.hr/media/images/920x695/Apr2018/61487390.jpg"));
         arrayList.add(new BeerData("Baltazar", "http://www.pivovara-medvedgrad.hr/beer/baltazar/","https://1.bp.blogspot.com/-z25wkIWHEns/WPRmioH4fCI/AAAAAAAADUQ/o-d8nSntMKEW35hrrDY9oEVgkpCJNAG6ACLcB/s1600/IMG_3470.JPG"));
-        CustomAdapter customAdapter = new CustomAdapter(this. arrayList);
+        CustomAdapter customAdapter = new CustomAdapter(arrayList, this);
         list.setAdapter(customAdapter);
     }
 }
