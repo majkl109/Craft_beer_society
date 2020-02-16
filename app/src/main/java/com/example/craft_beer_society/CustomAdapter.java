@@ -2,6 +2,9 @@ package com.example.craft_beer_society;
 
 import android.content.Context;
 import android.database.DataSetObserver;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import java.util.ArrayList;
 
@@ -42,6 +45,19 @@ class CustomAdapter implements ListAdapter {
     @Override
     public  boolean hasStableIds(){
         return false;
+    }
+    @Override View getView(int position, View convertView, ViewGroup parent){
+        BeerData beerData = arrayList.get(position);
+        if(convertView == null){
+            LayoutInflater layoutInflater = LayoutInflater.from(context);
+            convertView = layoutInflater.inflate(R.layout.list_row,null);
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
+        }
     }
 
 
