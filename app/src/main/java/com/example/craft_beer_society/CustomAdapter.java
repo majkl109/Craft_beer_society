@@ -1,5 +1,6 @@
 package com.example.craft_beer_society;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.database.DataSetObserver;
@@ -15,6 +16,9 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
+public class CustomAdapter extends RecyclerView
+
+/**
 public class CustomAdapter implements ListAdapter {
     ArrayList<BeerData> arrayList;
     Context context;
@@ -95,3 +99,4 @@ public class CustomAdapter implements ListAdapter {
     }
 
 }
+ */
