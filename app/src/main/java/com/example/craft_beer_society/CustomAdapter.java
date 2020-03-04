@@ -13,10 +13,35 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
+import java.util.List;
 
-public class CustomAdapter extends RecyclerView
+public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder>{
+
+    private ArrayList<BeerData> data;
+    private IOnItemClicked listener;
+
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_beer, false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull CustomAdapter.ViewHolder holder, int position, @NonNull List<Object> payloads) {
+        super.onBindViewHolder(holder, position, payloads);
+    }
+    @Override
+    public int getItemCount() {
+        return 0;
+    }
+}
 
 /**
 public class CustomAdapter implements ListAdapter {
