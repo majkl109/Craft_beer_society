@@ -12,13 +12,10 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder>{
 
@@ -34,14 +31,25 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomAdapter.ViewHolder holder, int position, @NonNull List<Object> payloads) {
-        super.onBindViewHolder(holder, position, payloads);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull List<Object> payloads) {
+        holder.bindData(data.get(position));
     }
     @Override
-    public int getItemCount() {
-        return 0;
+    public int getItemCount() { return data.size(); }
+    public void setData(ArrayList<BeerData> data){
+        this.data = new ArrayList<>();
+        this.data.addAll(data);
+        notifyDataSetChanged();
     }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+        //TODO finish tomorrow
+    }
+
+
 }
+
 
 /**
 public class CustomAdapter implements ListAdapter {
