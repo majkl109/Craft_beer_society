@@ -1,11 +1,41 @@
 package com.example.craft_beer_society;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.os.Bundle;
 import android.widget.ListView;
 import java.util.ArrayList;
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CustomAdapter.onItemClicked{
 
+  private RecyclerView recyclerView;
+  private CustomAdapter adapter;
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState){
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+
+      recyclerView = findViewById(R.id.recycler);
+      recyclerView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL, false));
+      adapter = new CustomAdapter();
+      adapter.setData(generateBeers());
+      recyclerView.setAdapter(adapter);
+      adapter.setListener(this);
+  }
+
+
+  private ArrayList<BeerStuff> generateBeers(){
+
+      ArrayList<BeerStuff> data = new ArrayList<>();
+
+
+  }
+
+
+
+/**
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,3 +49,4 @@ public class MainActivity extends AppCompatActivity {
         list.setAdapter(customAdapter);
     }
 }
+*/
